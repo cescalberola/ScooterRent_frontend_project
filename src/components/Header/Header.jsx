@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Header.scss";
+import 'boxicons';
+
 
 const Header = () => {
   return (
@@ -16,7 +18,7 @@ const Header = () => {
               Shop
             </Link>
             <Link to="/bag" className="navbar-link">
-              Bag
+            <box-icon name='shopping-bag'></box-icon>
             </Link>
             <Link to="/support" className="navbar-link">
               Support
