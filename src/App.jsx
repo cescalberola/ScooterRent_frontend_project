@@ -8,6 +8,7 @@ import MyAccount from "./components/MyAccount/MyAccount.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home.jsx";
 import Logout from "./components/Logout/Logout.jsx";
+import { Login } from "./components/Login/Login.jsx";
 
 const App = () => {
   return (
@@ -23,6 +24,8 @@ const App = () => {
           <Route path="/Support" element={<Support />} />
           <Route path="/MyAccount" element={<MyAccount />} />
           <Route path="/Logout" element={<Logout/>} />
+          <Route path="/Login" element={<Login/>} />
+
         </Routes>
       </BrowserRouter>
     </>
