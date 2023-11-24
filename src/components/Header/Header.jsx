@@ -1,10 +1,20 @@
 import { Link } from "react-router-dom";
 import "./Header.scss";
 import "boxicons";
-import { useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+
+  const updateSize=()=>{
+    if(window.innerWidth >= 768){
+      setIsMenuOpen(true);
+    }
+  }
+  
+  window.addEventListener('resize', updateSize);
+
 
   const toggleMenu = () => {
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
