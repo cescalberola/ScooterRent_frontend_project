@@ -1,23 +1,27 @@
 import { Link } from "react-router-dom";
 import "./Header.scss";
-import 'boxicons';
-import { useState } from 'react';
+import "boxicons";
+import { useState } from "react";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    if (isMobile) {
+      return setIsMenuOpen(!isMenuOpen);
+    }
+    return setIsMenuOpen(isMenuOpen);
   };
 
   return (
     <div className="container-menu">
       <div className="mobile-menu-icon" onClick={toggleMenu}>
-      <box-icon name={isMenuOpen ? 'x' : 'menu'}></box-icon>
+        <box-icon name={isMenuOpen ? "x" : "menu"}></box-icon>
       </div>
       {isMenuOpen && (
         <nav className="navbar">
-        <ul className="header-container">
+          <ul className="header-container">
             <Link to="/" className="navbar-link" onClick={toggleMenu}>
               Home
             </Link>
@@ -28,7 +32,7 @@ const Header = () => {
               Shop
             </Link>
             <Link to="/bag" className="navbar-link" onClick={toggleMenu}>
-            <box-icon name='shopping-bag'></box-icon>
+              <box-icon name="shopping-bag"></box-icon>
             </Link>
             <Link to="/support" className="navbar-link" onClick={toggleMenu}>
               Support
@@ -39,10 +43,10 @@ const Header = () => {
             <Link to="/logout" className="navbar-link" onClick={toggleMenu}>
               Logout
             </Link>
-        </ul>
-      </nav>
+          </ul>
+        </nav>
       )}
-    </div>  
+    </div>
   );
 };
 
