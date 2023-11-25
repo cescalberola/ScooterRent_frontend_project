@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
   const updateSize=()=>{
     if(window.innerWidth >= 768){
       setIsMenuOpen(true);

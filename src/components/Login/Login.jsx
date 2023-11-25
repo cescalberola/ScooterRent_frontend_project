@@ -1,12 +1,12 @@
-import React, { useEffect, useState, createContext, useReducer } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.scss";
 
   
 export const Login = () => {
   const initialValue = {
-    name: "",
     email: "",
+    password: "",
   };
   const [data, setData] = useState(initialValue);
   const [btnDisabled, setBtnDisabled] = useState(true);
@@ -19,8 +19,8 @@ export const Login = () => {
   }, [data]);
 
   useEffect(() => {
-    if (data.name.length < 3) {
-      setMessage("El nombre tiene que tener como mínimo 3 caracteres");
+    if (data.email.length < 3) {
+      setMessage("El email tiene que tener como mínimo 3 caracteres");
       setBtnDisabled(true);
     } else {
       setMessage(null);
@@ -48,19 +48,19 @@ export const Login = () => {
     <h2>Login</h2>
     <form onSubmit={handleSubmit} className="form-container">
       <input
-        type="text"
-        placeholder="User"
-        onChange={handleInputChange}
-        name="user"
-        value={data.user}
-        className="form-input"
-      />
-      <input
         type="email"
         placeholder="email"
         onChange={handleInputChange}
         name="email"
         value={data.email}
+        className="form-input"
+      />
+      <input
+        type="password"
+        placeholder="password"
+        onChange={handleInputChange}
+        name="password"
+        value={data.password}
         className="form-input"
       /><br></br>
       <button type="submit" disabled={btnDisabled} className="form-button">
