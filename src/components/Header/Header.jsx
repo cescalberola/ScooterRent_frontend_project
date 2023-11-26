@@ -1,24 +1,43 @@
 import { Link } from "react-router-dom";
 import "./Header.scss";
 import "boxicons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
-  const updateSize=()=>{
-    if(window.innerWidth >= 768){
-      setIsMenuOpen(true);
-    }
-  }
-  window.addEventListener('resize', updateSize);
+  const [isMenuOpen, setIsMenuOpen] = useState(window.innerWidth >= 768);
 
   const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
     if (isMobile) {
-      return setIsMenuOpen(!isMenuOpen);
+      setIsMenuOpen(false);
     }
-    return setIsMenuOpen(isMenuOpen);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobile = window.matchMedia("(max-width: 768px)").matches;
+      setIsMenuOpen(window.innerWidth >= 768 || isMobile);
+    };
+
+    // Verificar el tamaño inicial de la ventana al cargar la página
+    handleResize();
+
+    // Agregar el event listener para el cambio de tamaño
+    window.addEventListener("resize", handleResize);
+
+    // Limpiar el event listener al desmontar el componente
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const handleLinkClick = () => {
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    if (isMobile) {
+      setIsMenuOpen(false);
+    }
   };
 
   return (
@@ -29,25 +48,25 @@ const Header = () => {
       {isMenuOpen && (
         <nav className="navbar">
           <ul className="header-container">
-            <Link to="/" className="navbar-link" onClick={toggleMenu}>
+            <Link to="/" className="navbar-link" onClick={handleLinkClick}>
               Home
             </Link>
-            <Link to="/rental" className="navbar-link" onClick={toggleMenu}>
+            <Link to="/rental" className="navbar-link" onClick={handleLinkClick}>
               Rental
             </Link>
-            <Link to="/shop" className="navbar-link" onClick={toggleMenu}>
+            <Link to="/shop" className="navbar-link" onClick={handleLinkClick}>
               Shop
             </Link>
-            <Link to="/bag" className="navbar-link" onClick={toggleMenu}>
+            <Link to="/bag" className="navbar-link" onClick={handleLinkClick}>
               <box-icon name="shopping-bag"></box-icon>
             </Link>
-            <Link to="/support" className="navbar-link" onClick={toggleMenu}>
+            <Link to="/support" className="navbar-link" onClick={handleLinkClick}>
               Support
             </Link>
-            <Link to="/myaccount" className="navbar-link" onClick={toggleMenu}>
+            <Link to="/myaccount" className="navbar-link" onClick={handleLinkClick}>
               My Account
             </Link>
-            <Link to="/logout" className="navbar-link" onClick={toggleMenu}>
+            <Link to="/logout" className="navbar-link" onClick={handleLinkClick}>
               Logout
             </Link>
           </ul>

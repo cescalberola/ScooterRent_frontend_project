@@ -10,6 +10,7 @@ import MyAccount from "./components/MyAccount/MyAccount.jsx";
 import Home from "./components/Home/Home.jsx";
 import Logout from "./components/Logout/Logout.jsx";
 import { UserProvider } from "./context/UserContext/UserState";
+
 const App = () => {
   return (
     <>

@@ -1,80 +1,55 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./Login.scss";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext/UserState";
+import { Form, Input, Button } from 'antd';
 
-  
-export const Login = () => {
-  const initialValue = {
-    email: "",
-    password: "",
+const Login = () => {
+  const { login } = useContext(UserContext);
+
+  const onFinish = (values) => {
+    login(values)
+    console.log(values)
   };
-  const [data, setData] = useState(initialValue);
-  const [btnDisabled, setBtnDisabled] = useState(true);
-  const [message, setMessage] = useState("");
-
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    localStorage.setItem("formData", JSON.stringify(data));
-  }, [data]);
-
-  useEffect(() => {
-    if (data.email.length < 3) {
-      setMessage("El email tiene que tener como mínimo 3 caracteres");
-      setBtnDisabled(true);
-    } else {
-      setMessage(null);
-      setBtnDisabled(false);
-    }
-  }, [data]);
-  const handleInputChange = (e) => {
-    setData({
-      ...data,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setMessage("Login realizado con éxito");
-    setTimeout(() => {
-      setData(initialValue);
-      navigate("/");
-    }, 3000);
+ 
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
 
   return (
-  <div className="form-container">
-    <h2>Login</h2>
-    <form onSubmit={handleSubmit} className="form-container">
-      <input
-        type="email"
-        placeholder="email"
-        onChange={handleInputChange}
-        name="email"
-        value={data.email}
-        className="form-input"
-      />
-      <input
-        type="password"
-        placeholder="password"
-        onChange={handleInputChange}
-        name="password"
-        value={data.password}
-        className="form-input"
-      /><br></br>
-      <button type="submit" disabled={btnDisabled} className="form-button">
-        Login
-      </button>
-      <button type="submit" disabled={btnDisabled} className="form-button">
-        Sign in
-      </button>
-      {message && (
-        <p style={{ marginTop: "10px", color: "brown" }}>{message}</p>
-      )}
-    </form>
-  </div>
-); 
-}
+    <div className="container">
+      <Form
+        name="basic"
+        labelCol={{ span: 8 }}
+        wrapperCol={{ span: 16 }}
+        initialValues={{ remember: true }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+      >
+        <Form.Item
+          label="Email"
+          name="email"
+          rules={[{ required: true, message: "Please input your email!" }]}
+        >
+          <Input />
+        </Form.Item>
 
-export default Login;
+        <Form.Item
+          label="Password"
+          name="password"
+          rules={[{ required: true, message: "Please input your password!" }]}
+        >
+          <Input.Password />
+        </Form.Item>
+
+        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+          <Button type="primary" htmlType="submit">
+                Submit
+          </Button>
+        </Form.Item>
+      </Form>
+    </div>
+  );
+};
+
+export default Login
