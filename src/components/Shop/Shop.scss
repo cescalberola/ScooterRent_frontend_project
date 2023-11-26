@@ -1,0 +1,23 @@
+.shopSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 3vw;
+}
+
+.shopSectionCards {
+    display: flex;
+    flex-direction: row;
+    gap: 10px 30px;
+}
+
+.shopSection>h2 {
+    padding-bottom: 2vw;
+}
+@media screen and (max-width: 768px) {
+    .shopSectionCards {
+        display: flex;
+        flex-direction: column;
+        gap: 60px 30px
+    }
+}

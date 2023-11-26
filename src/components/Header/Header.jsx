@@ -23,13 +23,10 @@ const Header = () => {
       setIsMenuOpen(window.innerWidth >= 768 || isMobile);
     };
 
-    // Verificar el tamaño inicial de la ventana al cargar la página
     handleResize();
 
-    // Agregar el event listener para el cambio de tamaño
     window.addEventListener("resize", handleResize);
 
-    // Limpiar el event listener al desmontar el componente
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 

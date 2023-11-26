@@ -1,0 +1,46 @@
+article.card {
+    background-color: rgb(225, 183, 91);
+    box-shadow: 0 0 5px 0px rgba(213, 213, 213, 0.5),
+      -2px 9px 20px 0px rgba(213, 213, 213, 0.5);
+    border-radius: 25px;
+    width: 340px;
+    height: 520px;
+    position: relative;
+  }
+  
+  div.stickerPrice {
+    border-radius: 40%;
+    position: absolute;
+    top: 5px;
+    left: 7px;
+    width: 45px;
+    height: 45px;
+    background-color: rgb(239, 210, 20);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px 0px rgba(213, 213, 213, 0.5),
+      -2px 9px 20px 0px rgba(213, 213, 213, 0.5);
+    font-size: small;
+  }
+  
+  div.cardImgCont {
+    border-radius: 25px 25px 0px 0px;
+    overflow: hidden;
+  }
+  
+  div.cardImgCont > img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    height: 150px;
+  }
+  
+  div.cardTxtCont {
+    padding: 5px 17px;
+    text-align: center;
+  }
+  
+  .cardTxtCont > p {
+    font-size: 0.8em;
+  }
