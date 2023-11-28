@@ -3,6 +3,7 @@ import { Button, Form, Input } from "antd";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext/UserState";
 import { useNavigate } from "react-router-dom";
+import "./Login.scss"
 
 const Login = () => {
   const { login } = useContext(UserContext);
@@ -15,8 +16,8 @@ const Login = () => {
     }, 1000);
   };
   return (
-    <div>
-      <Form
+    <div className="login-container">
+      <Form className="login-form"
         name="basic"
         labelCol={{
           span: 8,
@@ -32,7 +33,7 @@ const Login = () => {
         }}
         onFinish={onFinish}
         autoComplete="off"
-      >
+      ><h1>Login</h1>
         <Form.Item
           label="Email"
           name="email"

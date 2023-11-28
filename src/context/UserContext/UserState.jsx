@@ -8,7 +8,7 @@ const user = JSON.parse(localStorage.getItem("user"));
 
 const initialState = {
   token: token || null,
-  user: user || null,
+  user: user||null,
 };
 
 const API_URL = "http://localhost:8080/customers";

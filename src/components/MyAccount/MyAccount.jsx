@@ -28,6 +28,15 @@ const MyAccount = () => {
         }}
       >
         <p>{user.email}</p>
+        <p>{user.PhoneNumber}</p>
+        <p>Orders:{user.Scooters?.map(scooter =>{
+          console.log(scooter)
+          return (
+            <div>
+              
+            </div>
+          )
+        })}</p>
       </Card>
     </div>
   );
