@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import "./Header.scss";
 import "boxicons";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { UserContext } from "../../context/UserContext/UserState";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(window.innerWidth >= 768);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const{token} =useContext(UserContext)
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -22,9 +24,11 @@ const Header = () => {
       const isMobile = window.matchMedia("(max-width: 768px)").matches;
       setIsMenuOpen(window.innerWidth >= 768 || isMobile);
     };
-
     handleResize();
-
+    if(window.innerWidth <= 768){
+      setIsMenuOpen(false)
+    }
+  
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
@@ -37,13 +41,19 @@ const Header = () => {
     }
   };
 
+  const onLogout=()=>{
+    handleLinkClick()
+    // Logout()
+  }
+
   return (
     <div className="container-menu">
       <div className="mobile-menu-icon" onClick={toggleMenu}>
         <box-icon name={isMenuOpen ? "x" : "menu"}></box-icon>
       </div>
       {isMenuOpen && (
-        <nav className="navbar">
+        <nav className="navbar">{
+          token?
           <ul className="header-container">
             <Link to="/" className="navbar-link" onClick={handleLinkClick}>
               Home
@@ -61,13 +71,18 @@ const Header = () => {
             <Link to="/support" className="navbar-link" onClick={handleLinkClick}>
               Support
             </Link>
+
             <Link to="/myaccount" className="navbar-link" onClick={handleLinkClick}>
               My Account
             </Link>
-            <Link to="/logout" className="navbar-link" onClick={handleLinkClick}>
+            <Link to="/logout" className="navbar-link" onClick={onLogout}>
               user Logout
             </Link>
-          </ul>
+          </ul>:
+            <Link to="/login" className="navbar-link" onClick={handleLinkClick}>
+              Login
+            </Link>
+        }
         </nav>
       )}
     </div>

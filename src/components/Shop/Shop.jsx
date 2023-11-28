@@ -17,6 +17,7 @@ const Shop = (props) => {
                   img={menuItem.img}
                   price={menuItem.price}
                   id={menuItem.id}
+                  key={menuItem.id}
                 />
               );
             })}

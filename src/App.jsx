@@ -1,5 +1,5 @@
 import "./App.scss";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { UserProvider } from "./context/UserContext/UserState";
 import Login from "./components/Login/Login.jsx";
 import Header from "./components/Header/Header.jsx";
@@ -15,7 +15,8 @@ import Basket from "./components/Basket/Basket.jsx";
 const items = [
   {
     name: "GripGuard Pro:",
-    description: "A silicone-based handlebar grip that offers superior comfort and anti-slip properties.",
+    description:
+      "A silicone-based handlebar grip that offers superior comfort and anti-slip properties.",
     img: "https://imgs.search.brave.com/PwR-KiXL1omnnN98QRDHjvZ4dm5hbhjzq6dfD-woWBQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzFLWjIrcUxVS1Mu/anBn",
     price: 10,
   },
@@ -28,7 +29,8 @@ const items = [
   },
   {
     name: "SwiftLock Basket:",
-    description: "A sturdy, collapsible basket attachment that securely holds belongings while riding.",
+    description:
+      "A sturdy, collapsible basket attachment that securely holds belongings while riding.",
     img: "https://imgs.search.brave.com/Ez7y7yrRhQuaAOPZWaxveT_AebzkNcCbRuJuJCyF0EI/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jZG4u/c2hvcGxpZ2h0c3Bl/ZWQuY29tL3Nob3Bz/LzYzMzQzOS9maWxl/cy80NTg2MzkxMy83/Njh4NzY4eDMvc3dp/ZnQtaW5kdXN0cmll/cy1zd2lmdC1pbmR1/c3RyaWVzLWJhc2tl/dC1iYWcuanBn",
     price: 15,
   },
@@ -38,7 +40,7 @@ const App = () => {
   return (
     <>
       <UserProvider>
-        <BrowserRouter>
+        <Router>
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -54,11 +56,10 @@ const App = () => {
             <Route path="/Login" element={<Login />} />
             <Route path="/Register" element={<Register />} />
           </Routes>
-        </BrowserRouter>
+        </Router>
       </UserProvider>
     </>
   );
 };
 
 export default App;
-

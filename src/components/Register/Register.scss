@@ -29,11 +29,10 @@ body {
 section {
     width: 100%;
     max-width: 420px;
-
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    padding: 1rem;
+    justify-content: center;
+    padding: 3rem;
     background-color: rgba(0,0,0,0.4);
 }
 

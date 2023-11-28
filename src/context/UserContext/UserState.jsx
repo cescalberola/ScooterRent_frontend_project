@@ -9,8 +9,9 @@ const initialState = {
   user: null,
 };
 
-const API_URL = "http://localhost:8080";
 
+
+const API_URL = "http://localhost:8080";
 
 export const UserContext = createContext(initialState);
 
@@ -24,7 +25,35 @@ export const UserProvider = ({ children }) => {
       payload: res.data,
     });
     if (res.data) {
-      localStorage.setItem("token", JSON.stringify(res.data.token));
+      localStorage.setItem("token", JSON.stringify(res.data.token, user));
+    }
+  };
+  const getUserInfo = async () => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    const res = await axios.get(API_URL + "/users/info", {
+      headers: {
+        authorization: token,
+      },
+    });
+    dispatch({
+      type: "GET_USER_INFO",
+      payload: res.data,
+    });
+  };
+  const logout = async () => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    const res = await axios.delete(API_URL + "/customers/logout", {
+      headers: {
+        authorization: token,
+      },
+    });
+    dispatch({
+      type: "LOGOUT",
+      payload: res.data,
+    });
+    if (res.data) {
+      localStorage.removeItem("user");
+      localStorage.removeItem("token");
     }
   };
   return (
@@ -33,11 +62,11 @@ export const UserProvider = ({ children }) => {
         token: state.token,
         user: state.user,
         login,
+        getUserInfo,
+        logout,
       }}
     >
       {children}
     </UserContext.Provider>
   );
-  
-}
-
+};
