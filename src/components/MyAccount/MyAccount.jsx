@@ -5,10 +5,13 @@ import { useNavigate } from "react-router-dom";
 
 const MyAccount = () => {
   const { getUserInfo, user } = useContext(UserContext);
+
   useEffect(() => {
     getUserInfo();
   }, []);
+
   const navigate = useNavigate();
+
   useEffect(() => {
     if (!user) {
       navigate("/login");
@@ -29,14 +32,14 @@ const MyAccount = () => {
       >
         <p>{user.email}</p>
         <p>{user.PhoneNumber}</p>
-        <p>Orders:{user.Scooters?.map(scooter =>{
-          console.log(scooter)
-          return (
-            <div>
-              
-            </div>
-          )
-        })}</p>
+        <p>Orders:</p>
+        {user.Scooters?.map((scooter, index) => (
+  <div key={index}>
+    <p>Brand: {scooter.brand}</p>
+    <p>Model: {scooter.model}</p>
+  </div>
+))}
+
       </Card>
     </div>
   );

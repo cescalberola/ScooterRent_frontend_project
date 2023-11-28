@@ -74,7 +74,7 @@ const Login = () => {
         <Button type="primary" htmlType="submit" className="login-form-button">
           Log in
         </Button>
-        Or <a href="/../src/components/Login/Login.jsx">register now!</a>
+        Or <a href="http://localhost:5173/register">register now!</a>
       </Form.Item>
       </Form>
     </div>
