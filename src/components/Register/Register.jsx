@@ -1,3 +1,4 @@
+import "./Register.scss"
 import React, { useState } from 'react';
 import {Button,Checkbox,Form,Input,Select,} from 'antd';
 const { Option } = Select;
@@ -56,7 +57,10 @@ const App = () => {
     label: website,
     value: website,
   }));
+  
   return (
+    <>
+    <div className='register-container'>
     <Form
       {...formItemLayout}
       form={form}
@@ -67,6 +71,7 @@ const App = () => {
     }}
       scrollToFirstError
     >
+      <h1>Register</h1>
     <Form.Item
       name="First Name"
       label="FirstName"
@@ -181,11 +186,13 @@ const App = () => {
         </Checkbox>
       </Form.Item>
       <Form.Item {...tailFormItemLayout}>
-        <Button type="primary" htmlType="submit">
+        <Button type="default" htmlType="submit">
           Register
         </Button>
       </Form.Item>
     </Form>
+    </div>
+    </>
   );
 };
 export default App;

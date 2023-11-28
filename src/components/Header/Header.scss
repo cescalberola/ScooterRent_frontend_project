@@ -1,9 +1,13 @@
 .menuNav{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgb(175, 174, 174);
+    
 }
 .menuNav a{
-  color: black;
+  color: rgb(255, 255, 255);
   text-decoration: none;
 }
 

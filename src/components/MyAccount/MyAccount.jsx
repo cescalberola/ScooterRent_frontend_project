@@ -1,3 +1,4 @@
+import "./MyAccount.scss"
 import { useContext, useEffect } from "react";
 import { UserContext } from "../../context/UserContext/UserState";
 import { Card, Spin } from "antd";
@@ -21,8 +22,9 @@ const MyAccount = () => {
     return <Spin />;
   }
   return (
-    <div>
-      <h1>My Account</h1>
+    <>
+    <h1>My account</h1>
+    <div className="container-myaccount">
       <Card
         title={user.FirstName}
         bordered={false}
@@ -34,14 +36,14 @@ const MyAccount = () => {
         <p>{user.PhoneNumber}</p>
         <p>Orders:</p>
         {user.Scooters?.map((scooter, index) => (
-  <div key={index}>
-    <p>Brand: {scooter.brand}</p>
-    <p>Model: {scooter.model}</p>
-  </div>
-))}
-
+          <div key={index}>
+            <p>Brand: {scooter.brand}</p>
+            <p>Model: {scooter.model}</p>
+          </div>
+        ))}
       </Card>
     </div>
+    </>
   );
 };
 

@@ -66,16 +66,11 @@ const Login = () => {
             span: 16,
           }}
         >
-          <Button type="primary" htmlType="submit">
+          <Button type="default" htmlType="submit">
             Submit
           </Button>
+           Or <a href="http://localhost:5173/register">register now!</a>
         </Form.Item>
-        <Form.Item>
-        <Button type="primary" htmlType="submit" className="login-form-button">
-          Log in
-        </Button>
-        Or <a href="http://localhost:5173/register">register now!</a>
-      </Form.Item>
       </Form>
     </div>
   );
