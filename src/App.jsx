@@ -5,12 +5,12 @@ import Login from "./components/Login/Login.jsx";
 import Header from "./components/Header/Header.jsx";
 import Rental from "./components/Rental/Rental.jsx";
 import Shop from "./components/Shop/Shop.jsx";
-import Bag from "./components/Bag/Bag.jsx";
 import Support from "./components/Support/Support.jsx";
 import MyAccount from "./components/MyAccount/MyAccount.jsx";
 import Home from "./components/Home/Home.jsx";
 import Logout from "./components/Logout/Logout.jsx";
 import Register from "./components/Register/Register.jsx";
+import Basket from "./components/Basket/Basket.jsx";
 
 const items = [
   {
@@ -47,7 +47,7 @@ const App = () => {
               path="/Shop"
               element={<Shop menuObject={items} sectionTitle="Items 1" />}
             />
-            <Route path="/Bag" element={<Bag />} />
+            <Route path="/Basket" element={<Basket />} />
             <Route path="/Support" element={<Support />} />
             <Route path="/MyAccount" element={<MyAccount />} />
             <Route path="/Logout" element={<Logout />} />

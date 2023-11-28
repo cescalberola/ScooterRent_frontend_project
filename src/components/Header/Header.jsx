@@ -54,8 +54,9 @@ const Header = () => {
             <Link to="/shop" className="navbar-link" onClick={handleLinkClick}>
               Shop
             </Link>
-            <Link to="/bag" className="navbar-link" onClick={handleLinkClick}>
+            <Link to="/basket" className="navbar-link" onClick={handleLinkClick}>
               <box-icon name="shopping-bag"></box-icon>
+              <box-icon name='circle' type='solid' color='#b2b3ab' ></box-icon>
             </Link>
             <Link to="/support" className="navbar-link" onClick={handleLinkClick}>
               Support
@@ -64,7 +65,7 @@ const Header = () => {
               My Account
             </Link>
             <Link to="/logout" className="navbar-link" onClick={handleLinkClick}>
-              Logout
+              user Logout
             </Link>
           </ul>
         </nav>
