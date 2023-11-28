@@ -4,6 +4,7 @@ import Login from "./components/Login/Login";
 import { UserProvider } from "./context/UserContext/UserState";
 import MyAccount from "./components/MyAccount/MyAccount";
 import Header from "./components/Header/Header";
+import Register from "./components/Register/Register"
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <UserProvider>
           <Header/>
           <Routes>
+            <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/myaccount" element={<MyAccount />} />
           </Routes>

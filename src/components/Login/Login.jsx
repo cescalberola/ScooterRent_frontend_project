@@ -70,6 +70,12 @@ const Login = () => {
             Submit
           </Button>
         </Form.Item>
+        <Form.Item>
+        <Button type="primary" htmlType="submit" className="login-form-button">
+          Log in
+        </Button>
+        Or <a href="/../src/components/Login/Login.jsx">register now!</a>
+      </Form.Item>
       </Form>
     </div>
   );
