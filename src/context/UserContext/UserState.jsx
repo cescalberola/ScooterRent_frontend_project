@@ -1,36 +1,38 @@
-import { createContext, useReducer } from "react";
+import { useReducer } from "react";
+import { createContext } from "react";
+import UserReducer from "./UserReducer.js";
 import axios from "axios";
-import UserReducer from "./UserReducer";
 
 const token = JSON.parse(localStorage.getItem("token"));
+const user = JSON.parse(localStorage.getItem("user"));
 
 const initialState = {
-  token: token ? token : null,
-  user: null,
+  token: token || null,
+  user: user || null,
 };
 
-
-
-const API_URL = "http://localhost:8080";
+const API_URL = "http://localhost:8080/customers";
 
 export const UserContext = createContext(initialState);
 
 export const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(UserReducer, initialState);
 
-  const login = async (user) => {
-    const res = await axios.post(API_URL + "/customers/login", user);
+  const login = async (valuesUser) => {
+    const res = await axios.post(API_URL + "/login", valuesUser);
     dispatch({
       type: "LOGIN",
       payload: res.data,
     });
     if (res.data) {
-      localStorage.setItem("token", JSON.stringify(res.data.token, user));
+      localStorage.setItem("token", JSON.stringify(res.data.token));
+      localStorage.setItem("user", JSON.stringify(res.data.customer));
     }
   };
+
   const getUserInfo = async () => {
     const token = JSON.parse(localStorage.getItem("token"));
-    const res = await axios.get(API_URL + "/users/info", {
+    const res = await axios.get(API_URL + "/info", {
       headers: {
         authorization: token,
       },
@@ -40,22 +42,24 @@ export const UserProvider = ({ children }) => {
       payload: res.data,
     });
   };
+
   const logout = async () => {
     const token = JSON.parse(localStorage.getItem("token"));
-    const res = await axios.delete(API_URL + "/customers/logout", {
+    const res = await axios.delete(API_URL + "/logout", {
       headers: {
         authorization: token,
       },
     });
     dispatch({
-      type: "LOGOUT",
-      payload: res.data,
-    });
-    if (res.data) {
-      localStorage.removeItem("user");
-      localStorage.removeItem("token");
+        type:"LOGOUT"
+    })
+  
+    if(res.data){
+        localStorage.removeItem("user")
+        localStorage.removeItem("token")
     }
   };
+
   return (
     <UserContext.Provider
       value={{

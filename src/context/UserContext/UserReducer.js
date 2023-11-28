@@ -4,20 +4,19 @@ const users = (state, action) => {
       return {
         ...state,
         token: action.payload.token,
-        user: action.payload.user,
+        user: action.payload.customer,
       };
     case "GET_USER_INFO":
       return {
         ...state,
-        user: action.payload,
+        user: action.payload,//res.data
       };
-    case "LOGOUT":
+      case "LOGOUT":
       return {
         ...state,
-        user: null,
         token: null,
+        user: null,
       };
-
     default:
       return state;
   }

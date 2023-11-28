@@ -1,18 +1,36 @@
-import React from 'react'
+import { useContext, useEffect } from "react";
+import { UserContext } from "../../context/UserContext/UserState";
+import { Card, Spin } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const MyAccount = () => {
+  const { getUserInfo, user } = useContext(UserContext);
+  useEffect(() => {
+    getUserInfo();
+  }, []);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user]);
+  if (!user) {
+    return <Spin />;
+  }
   return (
-    <>
     <div>
       <h1>My Account</h1>
-      <h3>Welcome user</h3>
-      <h4>My orders</h4>
-      <h4>My payments</h4>
-
+      <Card
+        title={user.FirstName}
+        bordered={false}
+        style={{
+          width: 300,
+        }}
+      >
+        <p>{user.email}</p>
+      </Card>
     </div>
-   
-    </>
-  )
-}
+  );
+};
 
-export default MyAccount
+export default MyAccount;
