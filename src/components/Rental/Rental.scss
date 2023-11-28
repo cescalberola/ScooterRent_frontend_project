@@ -1,7 +1,17 @@
 .scooter-container{
     margin-top: 100px;
-    margin-left: 120px;
+    margin-left: 50px;
 }
 .scooter-container-row{
     margin-top: 50px;
 }
+@media (max-width: 767px) {
+    .scooter-container {
+      .scooter-container-row {
+        .ant-row {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+  }
