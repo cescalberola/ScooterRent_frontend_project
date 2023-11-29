@@ -1,7 +1,9 @@
 import "./Register.scss"
-import React, { useState } from 'react';
-import {Button,Checkbox,Form,Input,Select,} from 'antd';
-const { Option } = Select;
+import React, { useContext } from 'react';
+import {Button,Checkbox,Form,Input} from 'antd';
+import { UserContext } from "../../context/UserContext/UserState";
+
+
 
 const formItemLayout = {
   labelCol: {
@@ -33,37 +35,21 @@ const tailFormItemLayout = {
     },
   },
 };
-const App = () => {
-  const [form] = Form.useForm();
-  const onFinish = (values) => {
+const Register = () => {
+  const { signUp } = useContext (UserContext)
+  
+  // const [form] = Form.useForm();
+  const onFinish = async (values) => {
+    await signUp(values);
     console.log('Received values of form: ', values);
   };
-  const prefixSelector = (
-    <Form.Item name="prefix" noStyle>
-      <Select
-        style={{
-          width: 70,
-        }}
-      >
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
-      </Select>
-    </Form.Item>
-  );
-  
-  const [autoCompleteResult, setAutoCompleteResult] = useState([]);
-  
-  const websiteOptions = autoCompleteResult.map((website) => ({
-    label: website,
-    value: website,
-  }));
-  
+
   return (
     <>
     <div className='register-container'>
     <Form
       {...formItemLayout}
-      form={form}
+      // form={form}
       name="register"
       onFinish={onFinish}
       style={{
@@ -73,7 +59,7 @@ const App = () => {
     >
       <h1>Register</h1>
     <Form.Item
-      name="First Name"
+      name="FirstName"
       label="FirstName"
       rules={[
         {
@@ -86,7 +72,7 @@ const App = () => {
       <Input />
     </Form.Item>
     <Form.Item
-      name="Last Name"
+      name="LastName"
       label="LastName"
       rules={[
         {
@@ -154,7 +140,7 @@ const App = () => {
 
 
       <Form.Item
-        name="phone"
+        name="PhoneNumber"
         label="Phone Number"
         rules={[
           {
@@ -195,4 +181,4 @@ const App = () => {
     </>
   );
 };
-export default App;
+export default Register;

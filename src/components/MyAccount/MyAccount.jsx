@@ -35,10 +35,12 @@ const MyAccount = () => {
         <p>{user.email}</p>
         <p>{user.PhoneNumber}</p>
         <p>Orders:</p>
+        Numero Pedidos:{user.Scooters?.length}
         {user.Scooters?.map((scooter, index) => (
           <div key={index}>
-            <p>Brand: {scooter.brand}</p>
-            <p>Model: {scooter.model}</p>
+            <p>Brand: {scooter.Brand}</p>
+            <p>Model: {scooter.Model}</p>
+            <p>Date: {scooter.CustomerScooter.createdAt}</p>
           </div>
         ))}
       </Card>
