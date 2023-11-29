@@ -18,13 +18,37 @@
     &:hover .cartIcon {
       color: black;
     }
-
+    &.active {
+      color: black;
+      .cartIcon {
+        color: black;
+      }
+    }
     .cartIcon {
       color: white;
       transition: color 0.3s ease;
     }
+  
   }
   .cartIcon{
     font-size: 23px;
+  }
+  .logo{
+    width: 80px;
+  }
+  @media screen and (min-width: 768px) {
+    .linkText {
+      display: inline;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .linkText {
+      display: none;
+    }
+
+    a {
+      display: inline-block;
+    }
   }
 }

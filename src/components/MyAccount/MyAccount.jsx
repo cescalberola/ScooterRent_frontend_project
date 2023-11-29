@@ -38,10 +38,10 @@ const MyAccount = () => {
           <p>{user.email}</p>
           <p>{user.PhoneNumber}</p>
           {user.Scooters?.map((scooter, index) => (
-            <Card
+            <Card className="container-card"
               key={index}
               title={`Order ${index + 1}`}
-              style={{ marginTop: 16, width: 300 }}
+              style={{ marginTop: 16, width: 380 }}
             >
               <p>Date: {scooter.CustomerScooter.createdAt}</p>
               <p>Brand: {scooter.Brand}</p>

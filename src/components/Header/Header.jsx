@@ -1,11 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { UserContext } from "../../context/UserContext/UserState";
-import { UserOutlined } from "@ant-design/icons";
+import { UserOutlined, LogoutOutlined, ThunderboltOutlined } from "@ant-design/icons";
 import { ProductsContext } from "../../context/ProductsContext/ProductsState";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Badge } from "antd";
 import "./Header.scss";
+import logo from "../../assets/Sin título-1 copia.png";
 
 const Header = () => {
   const { user, logout } = useContext(UserContext);
@@ -18,24 +19,32 @@ const Header = () => {
   return (
     <>
       <div className="menuNav">
+        <img src={logo} alt="Logo" className="logo" />
+        
+        <NavLink to="/products">
+          <span className="linkText">Products</span><ThunderboltOutlined />
+        </NavLink>
+        <NavLink to="/cart">
+          <span className="linkText">Cart</span>
+          <Badge count={cart.length} size="medium">
+            <ShoppingCartOutlined className="cartIcon" />
+          </Badge>
+        </NavLink>
+
         {user ? (
           <>
             <NavLink to="/myaccount">
-              {user.FirstName} <UserOutlined />
+              <span className="linkText">{user.FirstName}</span> <UserOutlined />
             </NavLink>
             <NavLink to="/login" onClick={logout}>
-              Logout
+              <span className="linkText">Logout</span><LogoutOutlined />
             </NavLink>
           </>
         ) : (
-          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/login">
+            <span className="linkText">Login</span>
+          </NavLink>
         )}
-        <NavLink to="/products">Products</NavLink>
-        <NavLink to="/cart">Cart
-          <Badge count={cart.length} size="medium" >
-          <ShoppingCartOutlined className="cartIcon" />
-          </Badge>
-        </NavLink>
       </div>
     </>
   );
