@@ -19,11 +19,7 @@ export const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(UserReducer, initialState);
 
   const signUp = async (valuesUser) => {
-    const res = await axios.post(API_URL + "/register", valuesUser);
-    dispatch({
-      type: "REGISTER",
-      payload: res.data,
-    });
+    return await axios.post(API_URL + "/register", valuesUser);
   };
   const login = async (valuesUser) => {
     const res = await axios.post(API_URL + "/login", valuesUser);

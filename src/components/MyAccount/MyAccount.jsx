@@ -27,20 +27,19 @@ const MyAccount = () => {
     <div className="container-myaccount">
       <Card
         title={user.FirstName}
-        bordered={false}
+        bordered={true}
         style={{
           width: 300,
         }}
       >
         <p>{user.email}</p>
         <p>{user.PhoneNumber}</p>
-        <p>Orders:</p>
-        Numero Pedidos:{user.Scooters?.length}
         {user.Scooters?.map((scooter, index) => (
           <div key={index}>
+            <p>Orders:{user.Scooters?.length}</p><br></br>
+            <p>Date: {scooter.CustomerScooter.createdAt}</p>
             <p>Brand: {scooter.Brand}</p>
             <p>Model: {scooter.Model}</p>
-            <p>Date: {scooter.CustomerScooter.createdAt}</p>
           </div>
         ))}
       </Card>

@@ -67,9 +67,9 @@ const Login = () => {
           }}
         >
           <Button type="default" htmlType="submit">
-            Submit
+            Login
           </Button>
-           Or <a href="http://localhost:5173/register">register now!</a>
+           Or <a href="http://localhost:5173/register">Sign In</a>
         </Form.Item>
       </Form>
     </div>
