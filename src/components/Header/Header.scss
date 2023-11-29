@@ -1,13 +1,30 @@
-.menuNav{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
-    padding: 20px;
-    background-color: rgb(175, 174, 174);
-    
-}
-.menuNav a{
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-}
+.menuNav {
+  font-size: 22px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: rgb(175, 174, 174);
 
+  a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: black;
+    }
+
+    &:hover .cartIcon {
+      color: black;
+    }
+
+    .cartIcon {
+      color: white;
+      transition: color 0.3s ease;
+    }
+  }
+  .cartIcon{
+    font-size: 23px;
+  }
+}
