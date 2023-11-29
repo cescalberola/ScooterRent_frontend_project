@@ -11,17 +11,12 @@
 //       <Col span={8}>
 //         <Card
 //           style={{ width: 300 }}
-//           cover={<img alt="example" src="https://imgs.search.brave.com/1B2f8BpDVtHqJBI21MaHNqdbT8BMShLhT--0YedXOfk/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/cG93ZXJwbGFuZXRv/bmxpbmUuY29tL2Nk/bmFzc2V0cy9jZWNv/dGVjX2JvbmdvX3Nl/cmllX2FfcGx1c19t/YXhfNDVfY29ubmVj/dGVkX25lZ3JvX3Bh/dGluZXRlX2VsZWN0/cmljb18wMV9sLmpw/Zw" />}
 //           actions={[
 //             <ShoppingCartOutlined />,
 //             <StarOutlined />,
 //             <HeartOutlined />
 //           ]}
 //         >
-//           <Meta
-//             title="Cecotec"
-//             description="Bongo Serie Y65"
-//           />
 //         </Card>
 //       </Col>
 //       <Col span={8}>

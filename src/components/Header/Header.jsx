@@ -19,8 +19,6 @@ const Header = () => {
     <div className="menuNav">
       {user ? (
         <>
-          <NavLink to="/products">Products</NavLink>
-          {/* <NavLink to="/cart"> Cart <ShoppingCartOutlined /></NavLink> */}
           <NavLink to="/myaccount">
             {user.FirstName} <UserOutlined />
           </NavLink>
@@ -28,7 +26,8 @@ const Header = () => {
         </>
       ) : (
         <NavLink to="/login">Login</NavLink>
-      )}
+        )}
+        <NavLink to="/products">Products</NavLink>
       <NavLink to="/cart"> <Badge count={cart.length} size="small" > Cart<ShoppingCartOutlined /></Badge> </NavLink>
     </div>
     </>

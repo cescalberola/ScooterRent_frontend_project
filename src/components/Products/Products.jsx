@@ -8,27 +8,31 @@ const Products = () => {
   useEffect(() => {
     getProducts();
   }, []);
+
+
   return (
     <>
-    <div className="products-container">
+    <div className="scooter-container">
+    <div className='scooter-container-row'>
       {products.map((product) => {
-        console.log(product)
         return (
-            <Card
-              title={product.Brand}
-              bordered={true}
-              style={{
-                width: 300
-              }}
-              key={product.id}
-            >
-              <p>{product.Model}</p>
-              <p>{product.Price}</p>
-              <Button onClick={()=>addCart(product)}>Add Cart  <ShoppingCartOutlined /></Button>
-             
-            </Card>
+          
+          <Card
+          title={product.Brand}
+          bordered={true}
+          style={{
+            width: 300
+          }}
+          key={product.id}
+        >
+          <p>{product.Model}</p>
+          <img src={product.Img} alt={product.Model} style={{ width: '100%', height: 'auto' }} />
+          <p>{product.Price} €</p>
+          <Button onClick={() => addCart(product)}>Add Cart <ShoppingCartOutlined /></Button>
+        </Card>
         );
       })}
+      </div>
     </div>
     </>
   );
