@@ -5,6 +5,7 @@ Welcome to my frontend project for an E-commerce application! Here, our focus wi
 ## 📝 Description
 
 My frontend project aims to provide an intuitive user experience for an E-commerce platform. We'll implement key functionalities such as user registration, login, product visualization, cart management, order creation, and the ability to view user profiles.
+For the organization of the project I used the Trello tool following the Agile's methodology.
 
 ### 🖥️ Core Components
 
@@ -19,6 +20,10 @@ The frontend will consist of the following core components:
 - **Profile:** Display of user data and their orders.
 - **Header:** Main navigation of the application.
 - **Footer:** Final section of the application.
+
+### 🌟  Extra
+- The user can see in his profile the orders
+- That is responsive
 
 ### 🌐 React Router and Context
 
@@ -91,5 +96,4 @@ Don't forget to give the project a star! Thanks again!
   <img src="https://imgs.search.brave.com/0On1oCveocTdLccAaR4RAjEWnlrfCai3kQg3nW997CE/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9zZWVr/bG9nby5jb20vaW1h/Z2VzL0EvYW50LWRl/c2lnbi1sb2dvLUVB/QjZCM0Q1RDktc2Vl/a2xvZ28uY29tLnBu/Zw" width="40">
   <!--NPM-->
   <img src="https://imgs.search.brave.com/ziXbll6Eu_vanLF_3jITiNkpTCtx7YcJeFlLoeAvjIA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9naXRs/YWIuc3ZnLnpvbmUv/b21uaWFpdC9kZXZl/bG9wZXItbG9nb3Mv/cmF3L21hc3Rlci9s/b2dvcy9mcm9udC1l/bmQtd2ViL25wbS5z/dmc.svg" width="40">
-
 </p>
