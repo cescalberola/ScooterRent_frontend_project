@@ -8,7 +8,8 @@ import Header from "./components/Header/Header";
 import Register from "./components/Register/Register"
 import Cart from "./components/Cart/Cart";
 import Products from "./components/Products/Products";
-// import Rental from "./components/Rental/Rental";
+import Footer from "./components/Footer/Footer";
+
 
 
 function App() {
@@ -24,10 +25,10 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/myaccount" element={<MyAccount />} />
-            {/* <Route path="/rental" element={<Rental />} /> */}
           </Routes>
           </ProductsProvider>
         </UserProvider>
+        <Footer />
       </Router>
     </>
   );
