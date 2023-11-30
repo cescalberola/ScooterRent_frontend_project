@@ -79,11 +79,13 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="center">
   <!--REACT-->
-  <img src="https://imgs.search.brave.com/vo6BX_XoOCp2zawTPCX6LDR7GYMp4BkOPyDkA_f-uFs/rs:fit:860:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9h/L2E3L1JlYWN0LWlj/b24uc3Zn.svg" width="40">
+  <img src="https://imgs.search.brave.com/vo6BX_XoOCp2zawTPCX6LDR7GYMp4BkOPyDkA_f-uFs/rs:fit:860:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9h/L2E3L1JlYWN0LWlj/b24uc3Zn.svg" alt="React" width="40">
   <!--REACT VITE-->
   <img src="https://imgs.search.brave.com/1BLuF9xlfaCLJkn7Kzo-qi7LmaZt0GdF_gvhecslMg8/rs:fit:860:0:0/g:ce/aHR0cHM6Ly92aXRl/anMuZGV2L2xvZ28t/d2l0aC1zaGFkb3cu/cG5n" width="40">
   <!--JAVASCRIPT-->
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" width="40" alt="JavaScript">
+  <!--SASS-->
+  <img src="https://imgs.search.brave.com/nsFHtJ6IwaKdeVS0g-P5lXK7E28efyRej2yD3u15XfM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9kMjlm/aHB3MDY5Y3R0Mi5j/bG91ZGZyb250Lm5l/dC9pY29uL2ltYWdl/LzM4NTY5L3ByZXZp/ZXcuc3Zn.svg" width="40" alt="Sass">
   <!--ANTDESIGN-->
   <img src="https://imgs.search.brave.com/0On1oCveocTdLccAaR4RAjEWnlrfCai3kQg3nW997CE/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9zZWVr/bG9nby5jb20vaW1h/Z2VzL0EvYW50LWRl/c2lnbi1sb2dvLUVB/QjZCM0Q1RDktc2Vl/a2xvZ28uY29tLnBu/Zw" width="40">
   <!--NPM-->

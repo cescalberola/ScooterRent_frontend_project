@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { UserContext } from "../../context/UserContext/UserState";
-import { UserOutlined, LogoutOutlined, ThunderboltOutlined } from "@ant-design/icons";
+import { UserOutlined, LogoutOutlined,LoginOutlined, ThunderboltOutlined } from "@ant-design/icons";
 import { ProductsContext } from "../../context/ProductsContext/ProductsState";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Badge } from "antd";
@@ -42,7 +42,7 @@ const Header = () => {
           </>
         ) : (
           <NavLink to="/login">
-            <span className="linkText">Login</span>
+            <span className="linkText">Login</span> <LoginOutlined />
           </NavLink>
         )}
       </div>

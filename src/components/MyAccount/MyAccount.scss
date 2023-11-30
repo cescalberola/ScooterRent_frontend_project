@@ -1,19 +1,49 @@
-h1{
+.my-account-container {
     text-align: center;
     margin-top: 50px;
-}
-.container-myaccount{
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    margin-left: 50px;  
-    margin-right: 50px;
-}
-.container-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 16px;
-    width: 300px;
+  
+    .container-myaccount {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  
+      .container-card {
+        width: 80%;
+        margin-bottom: 20px;
+  
+        .scooter-details {
+          display: flex;
+          align-items: center;
+  
+          .scooter-image {
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+          }
+  
+          .details {
+            flex: 1;
+  
+            p {
+              margin: 5px 0;
+              text-align: left; 
+            }
+          }
+        }
+      }
+    }
+    
+    @media screen and (min-width: 768px) {
+      .container-myaccount {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+  
+        .container-card {
+          width: 60%;
+          margin-bottom: 20px;
+        }
+      }
+    }
   }
+  

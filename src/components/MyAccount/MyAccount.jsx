@@ -25,41 +25,32 @@ const MyAccount = () => {
   }
 
   return (
-    <>
+    <div className="my-account-container">
       <h1>My account</h1>
       <div className="container-myaccount">
-        <Card
-          title={user.FirstName}
-          bordered={true}
-          style={{
-            width: 600,
-          }}
-        >
-          <p>{user.email}</p>
-          <p>{user.PhoneNumber}</p>
-          {user.Scooters?.map((scooter, index) => (
-            <Card
-              className="container-card"
-              key={index}
-              title={`Order ${index + 1}`}
-              style={{ marginTop: 16, width: 490 }}
-            >
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <img
-                  src={scooter.Img}
-                  style={{ marginRight: "60px", width: "50px", height: "50px" }}
-                />
-                <div>
-                  <p>Date: {scooter.CustomerScooter.createdAt}</p>
-                  <p>Brand: {scooter.Brand}</p>
-                  <p>Model: {scooter.Model}</p>
-                </div>
+        {user.Scooters?.map((scooter, index) => (
+          <Card
+            className="container-card"
+            key={index}
+            title={`Order ${index + 1}`}
+            style={{ marginBottom: 16 }}
+          >
+            <div className="scooter-details">
+              <img
+                src={scooter.Img}
+                alt={`Scooter ${index + 1}`}
+                className="scooter-image"
+              />
+              <div className="details">
+                <p>Date: {scooter.CustomerScooter.createdAt}</p>
+                <p>Brand: {scooter.Brand}</p>
+                <p>Model: {scooter.Model}</p>
               </div>
-            </Card>
-          ))}
-        </Card>
+            </div>
+          </Card>
+        ))}
       </div>
-    </>
+    </div>
   );
 };
 

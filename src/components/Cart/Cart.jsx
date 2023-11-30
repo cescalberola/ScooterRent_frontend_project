@@ -42,8 +42,8 @@ const Cart = () => {
         dataSource={data}
         renderItem={(scooter) => (
           <List.Item>
-            <img src={scooter.image} alt={scooter.model} style={{ marginLeft: '30px', marginRight: '60px', width: '50px', height: '50px' }} />
-            <Typography.Text mark>Name product:</Typography.Text> {scooter.model}
+            <img src={scooter.image} alt={scooter.model} style={{ marginLeft: '20px', marginRight: '20px', width: '50px', height: '50px' }} />
+             {scooter.model}
           </List.Item>
         )}
       />
