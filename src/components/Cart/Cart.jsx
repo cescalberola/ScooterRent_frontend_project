@@ -9,15 +9,20 @@ import { Link } from "react-router-dom";
 const Cart = () => {
   const { cart, clearCart } = useContext(ProductsContext);
   const { token } = useContext(UserContext);
-  const data = cart.map((product) => product.Model);
+  const data = cart.map((product) => ({
+    model: product.Model,
+    image: product.Img,
+  }));
   return (
-    <>
-      <Divider orientation="left">Cart</Divider>
-      <List
+    <div className="cart-container">
+      <h1>Cart</h1>
+      <br />
+      <List 
+      
         header={<div>Products</div>}
         footer={
           <div className="container-buttons">
-            <Button onClick={clearCart}>Clear Cart </Button>
+            <Button onClick={clearCart}>Clear Cart</Button>
             {token ? (
               <Button
                 type="primary"
@@ -33,15 +38,16 @@ const Cart = () => {
             )}
           </div>
         }
-        bordered
+        bordered 
         dataSource={data}
-        renderItem={(item) => (
+        renderItem={(scooter) => (
           <List.Item>
-            <Typography.Text mark>Name product:</Typography.Text> {item}
+            <img src={scooter.image} alt={scooter.model} style={{ marginLeft: '30px', marginRight: '60px', width: '50px', height: '50px' }} />
+            <Typography.Text mark>Name product:</Typography.Text> {scooter.model}
           </List.Item>
         )}
       />
-    </>
+    </div>
   );
 };
 

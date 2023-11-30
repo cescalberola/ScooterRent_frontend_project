@@ -74,7 +74,7 @@ Don't forget to give the project a star! Thanks again!
 ## Preview Workflow
 
 <p align="center">
-  <img src="assets/workflow-scooterRent.gif" width="900">
+  <img src="src/assets/ecommerce_rentalscooter.gif" width="900">
 </p>
 
 <p align="center">

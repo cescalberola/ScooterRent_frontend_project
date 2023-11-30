@@ -32,20 +32,29 @@ const MyAccount = () => {
           title={user.FirstName}
           bordered={true}
           style={{
-            width: 500,
+            width: 600,
           }}
         >
           <p>{user.email}</p>
           <p>{user.PhoneNumber}</p>
           {user.Scooters?.map((scooter, index) => (
-            <Card className="container-card"
+            <Card
+              className="container-card"
               key={index}
               title={`Order ${index + 1}`}
-              style={{ marginTop: 16, width: 380 }}
+              style={{ marginTop: 16, width: 490 }}
             >
-              <p>Date: {scooter.CustomerScooter.createdAt}</p>
-              <p>Brand: {scooter.Brand}</p>
-              <p>Model: {scooter.Model}</p>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <img
+                  src={scooter.Img}
+                  style={{ marginRight: "60px", width: "50px", height: "50px" }}
+                />
+                <div>
+                  <p>Date: {scooter.CustomerScooter.createdAt}</p>
+                  <p>Brand: {scooter.Brand}</p>
+                  <p>Model: {scooter.Model}</p>
+                </div>
+              </div>
             </Card>
           ))}
         </Card>
