@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { Button, Divider, List, Typography } from "antd";
 import { ProductsContext } from "../../context/ProductsContext/ProductsState";
-import "./Cart.scss"
+import "./Cart.scss";
 import orderService from "../../services/OrderService";
 import { UserContext } from "../../context/UserContext/UserState";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { cart, clearCart } = useContext(ProductsContext);
-  const {token} = useContext(UserContext)
+  const { token } = useContext(UserContext);
   const data = cart.map((product) => product.Model);
   return (
     <>
@@ -18,11 +18,19 @@ const Cart = () => {
         footer={
           <div className="container-buttons">
             <Button onClick={clearCart}>Clear Cart </Button>
-            {token ?<Button type="primary" onClick={()=>{
-                orderService.createOrder(cart)
-                clearCart()
-                }}>Create Order</Button>:<Link to="/login">Go to login to shops</Link>}
-            
+            {token ? (
+              <Button
+                type="primary"
+                onClick={() => {
+                  orderService.createOrder(cart);
+                  clearCart();
+                }}
+              >
+                Create Order
+              </Button>
+            ) : (
+              <Link to="/login">Go to login to shops</Link>
+            )}
           </div>
         }
         bordered
