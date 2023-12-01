@@ -1,11 +1,10 @@
 import React from 'react';
-import fondoImage from '../../assets/img home.png';
-import "./Home.scss"
+import './Home.scss';
 
 const Home = () => {
   return (
-    <div className='img-container'>
-      <img src={fondoImage} alt="Fondo" />
+    <div className='banner-container'>
+      <h1 className='banner-text'>Bienvenidos a VAL Scooters</h1>
     </div>
   );
 };

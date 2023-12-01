@@ -1,8 +1,15 @@
-img{
-    width: 100%;
+.banner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  margin-top: 190px;
+  margin-bottom: 190px;
+
+  background-color: rgb(175, 174, 174);
 }
 
-.img-container{
-    margin-bottom: 250px;
-    margin-top: 230px;
+.banner-text {
+  font-size: 34px;
+  text-align: center;
 }
