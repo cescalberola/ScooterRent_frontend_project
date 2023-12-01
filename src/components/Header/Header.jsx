@@ -18,8 +18,9 @@ const Header = () => {
 
   return (
     <>
+    
       <div className="menuNav">
-        <img src={logo} alt="Logo" className="logo" />
+      <NavLink to="/"><img src={logo} alt="Logo" className="logo" /></NavLink>
         
         <NavLink to="/products">
           <span className="linkText">Products</span><ThunderboltOutlined />

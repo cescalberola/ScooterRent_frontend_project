@@ -9,6 +9,7 @@ import Register from "./components/Register/Register"
 import Cart from "./components/Cart/Cart";
 import Products from "./components/Products/Products";
 import Footer from "./components/Footer/Footer";
+import Home from "./components/Home/Home";
 
 
 
@@ -20,6 +21,7 @@ function App() {
           <ProductsProvider>
           <Header/>
           <Routes>
+            <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/register" element={<Register />} />
